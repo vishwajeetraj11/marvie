@@ -13,4 +13,6 @@ export const IconsNames = {
 	home_nav: 'home_nav',
 	like_nav: 'like_nav',
 	bell_nav: 'bell_nav',
+	attachment: 'attachment',
+	share: 'share',
 };

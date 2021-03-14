@@ -1,10 +1,8 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
 import styles from "../styles";
 import { ScrollView } from "react-native";
-import { LinearGradient } from "expo-linear-gradient";
-import { Card, Triangle, Settings, Chick } from "../components/Icons";
-import { windowWidth, windowHeight } from "../dimensions";
+import { Card, Settings } from "../components/Icons";
 import { StatusBar } from "expo-status-bar";
 
 import VerticalBox from "../components/VerticalBox";

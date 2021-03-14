@@ -1,8 +1,6 @@
 import React from "react";
 import { ScrollView } from "react-native";
-import styled from "styled-components";
 import ScreenTitle from "../components/ScreenTitle";
-import { SmallText, MediumText } from "../components/Typography";
 import { Container } from "./Courses";
 import styles from "../styles";
 import {
@@ -13,8 +11,6 @@ import { StarOutline, Gift } from "../components/Icons";
 import Carousal from "../components/Carousal";
 import MapView from "../components/MapView";
 import { StatusBar } from "expo-status-bar";
-
-const Text = styled.Text``;
 
 export default () => (
   <>
