@@ -14,5 +14,10 @@ export const IconsNames = {
 	like_nav: 'like_nav',
 	bell_nav: 'bell_nav',
 	attachment: 'attachment',
-	share: 'share',
+	default_user: 'default_user',
+	lock: 'lock',
+	eye: 'eye',
+	cart: 'cart',
+	next: 'next',
+	prev: 'prev',
 };
