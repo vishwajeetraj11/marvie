@@ -1,9 +1,7 @@
 import * as React from 'react';
-
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
-
 import Contacts from '../screens/Contacts';
 import Courses from '../screens/Courses';
 import Feed from '../screens/Feed';
@@ -60,7 +58,7 @@ const ContactsStack = () => {
 	);
 };
 
-export default function Navigation() {
+const TabNavigation = () => {
 	return (
 		<NavigationContainer>
 			<Tab.Navigator
@@ -112,3 +110,5 @@ export default function Navigation() {
 		</NavigationContainer>
 	);
 }
+
+export default TabNavigation
