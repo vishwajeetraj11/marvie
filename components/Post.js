@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
-import { Text, View, Image } from 'react-native';
+import { View } from 'react-native';
 import styled from 'styled-components';
 import { IconsNames } from '../shared/constants';
 import styles from '../styles';
 import Icon from './core/Icon';
-import { SafeAreaView, TextInput } from "react-native";
 
 import { MediumText, MiniFont, SmallText } from './Typography';
-const Post = ({ background, avatar, desc, postImages }) => {
+const Post = ({ background, avatar, desc, postImages, username, date, comments, likes }) => {
     const [comment, setComment] = useState('');
     const onChange = (e) => {
 
@@ -19,8 +18,8 @@ const Post = ({ background, avatar, desc, postImages }) => {
                     <Avatar source={avatar} />
                 </AvatarContainer>
                 <View>
-                    <MediumText>Alice Smith</MediumText>
-                    <MiniFont>20 April at 4:20 PM</MiniFont>
+                    <MediumText>{username}</MediumText>
+                    <MiniFont>{date}</MiniFont>
                 </View>
             </UserInfoContainer>
             <PostContent>
@@ -40,14 +39,14 @@ const Post = ({ background, avatar, desc, postImages }) => {
                     <IconContainer>
                         <Icon name={IconsNames.chat_nav} color={styles.LightGrayUI} size={17} />
                     </IconContainer>
-                    <SmallText color={styles.LightGrayUI}>7 Comments</SmallText>
+                    <SmallText color={styles.LightGrayUI}>{comments} Comments</SmallText>
                 </Stat>
                 <Stat>
                     <IconContainer>
                         <Icon name={IconsNames.like_nav} color={styles.LightGrayUI} size={17} />
                     </IconContainer>
 
-                    <SmallText color={styles.LightGrayUI}>49 Likes</SmallText>
+                    <SmallText color={styles.LightGrayUI}>{likes} Likes</SmallText>
                 </Stat>
                 <Stat>
                     <IconContainer>
