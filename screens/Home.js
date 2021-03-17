@@ -2,10 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import styles from '../styles';
 import { Container } from './Courses';
-import { StatusBar } from 'expo-status-bar';
+import { StatusBar } from 'react-native';
 import { ScrollView } from 'react-native';
 import ScreenTitle from '../components/ScreenTitle';
 import Post from '../components/Post';
+import { StatusBarStyles } from '../shared/constants';
 
 const View = styled.View`
 	justify-content: center;
@@ -20,7 +21,7 @@ const Text = styled.Text`
 
 export default () => (
 	<>
-		<StatusBar style='light' />
+		<StatusBar barStyle={StatusBarStyles.lightContent} />
 		<ScrollView style={{ backgroundColor: styles.backgroundDark }}>
 			<Container>
 				<ScreenTitle title={'Home'} />

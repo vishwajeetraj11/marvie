@@ -20,4 +20,16 @@ export const IconsNames = {
 	cart: 'cart',
 	next: 'next',
 	prev: 'prev',
+	share: 'share'
+};
+
+export const StatusBarStyles = {
+	default: 'default',
+	darkContent: 'dark-content',
+	lightContent: 'light-content',
+};
+export const StatusBarTransitions = {
+	fade: 'fade',
+	slide: 'slide',
+	none: 'none',
 };

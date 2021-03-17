@@ -6,11 +6,18 @@ import styles from '../styles';
 import Icon from './core/Icon';
 
 import { MediumText, MiniFont, SmallText } from './Typography';
-const Post = ({ background, avatar, desc, postImages, username, date, comments, likes }) => {
+const Post = ({
+    background,
+    avatar,
+    desc,
+    postImages,
+    username,
+    date,
+    comments,
+    likes,
+}) => {
     const [comment, setComment] = useState('');
-    const onChange = (e) => {
-
-    };
+    const onChange = (e) => { };
     return (
         <Container theme={background}>
             <UserInfoContainer>
@@ -29,28 +36,50 @@ const Post = ({ background, avatar, desc, postImages, username, date, comments, 
                         <BigImage resizeMode='cover' source={postImages.big} />
                     </ImagesLeft>
                     <ImagesRight>
-                        <SmallImageMargBott resizeMode='cover' source={postImages.small[0]} />
-                        <SmallImage resizeMode='cover' source={postImages.small[1]} />
+                        <SmallImageMargBott
+                            resizeMode='cover'
+                            source={postImages.small[0]}
+                        />
+                        <SmallImage
+                            resizeMode='cover'
+                            source={postImages.small[1]}
+                        />
                     </ImagesRight>
                 </Images>
             </PostContent>
             <PostStats>
                 <Stat>
                     <IconContainer>
-                        <Icon name={IconsNames.chat_nav} color={styles.LightGrayUI} size={17} />
+                        <Icon
+							name={IconsNames.chat_nav}
+							color={styles.LightGrayUI}
+							size={17}
+						/>
                     </IconContainer>
-                    <SmallText color={styles.LightGrayUI}>{comments} Comments</SmallText>
+                    <SmallText color={styles.LightGrayUI}>
+                        {comments} Comments
+					</SmallText>
                 </Stat>
                 <Stat>
                     <IconContainer>
-                        <Icon name={IconsNames.like_nav} color={styles.LightGrayUI} size={17} />
+                        <Icon
+							name={IconsNames.like_nav}
+							color={styles.LightGrayUI}
+							size={17}
+						/>
                     </IconContainer>
 
-                    <SmallText color={styles.LightGrayUI}>{likes} Likes</SmallText>
+                    <SmallText color={styles.LightGrayUI}>
+                        {likes} Likes
+					</SmallText>
                 </Stat>
                 <Stat>
                     <IconContainer>
-                        <Icon name={IconsNames.share} color={styles.LightGrayUI} size={17} />
+                        <Icon
+							name={IconsNames.share}
+							color={styles.LightGrayUI}
+							size={17}
+						/>
                     </IconContainer>
                     <SmallText color={styles.LightGrayUI}>Share</SmallText>
                 </Stat>
@@ -60,7 +89,11 @@ const Post = ({ background, avatar, desc, postImages, username, date, comments, 
                     <Avatar source={avatar} />
                 </AvatarContainer>
                 <ShareIcon>
-                    <Icon name={IconsNames.attachment} color={styles.LightGrayUI} size={25} />
+                    <Icon
+						name={IconsNames.attachment}
+						color={styles.LightGrayUI}
+						size={25}
+					/>
                 </ShareIcon>
                 <CommentInputContainer>
                     <CommentInput
@@ -78,79 +111,78 @@ const Post = ({ background, avatar, desc, postImages, username, date, comments, 
 };
 
 const ShareIcon = styled.View`
-    position: absolute;
-    right: 4px;
-    top: 13px;
-    z-index: 1;
+	position: absolute;
+	right: 4px;
+	top: 13px;
+	z-index: 1;
 `;
 
 const Comment = styled.View`
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    margin-top: 16px;
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	margin-top: 16px;
 `;
 
 const CommentInputContainer = styled.View`
-    background-color: ${styles.backgroundDark};
-    border-radius: 20px;
-    flex: 1;
+	background-color: ${styles.backgroundDark};
+	border-radius: 20px;
+	flex: 1;
 `;
 
 const CommentInput = styled.TextInput`
-    background-color: ${styles.backgroundDark};
-    color: ${styles.LightGrayUI};
-    padding: 12px 16px;
-    width: 90%;
-    border-radius: 20px;
+	background-color: ${styles.backgroundDark};
+	color: ${styles.LightGrayUI};
+	padding: 12px 16px;
+	width: 90%;
+	border-radius: 20px;
 `;
 
 const IconContainer = styled.View`
-    margin-right: 10px;
+	margin-right: 10px;
 `;
 
 const Stat = styled.View`
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    justify-content: space-between;
+	display: flex;
+	align-items: center;
+	flex-direction: row;
+	justify-content: space-between;
 `;
 
 const PostStats = styled(Stat)`
-    border-bottom-width: 1px;
-    padding: 10px 0;
-    border-bottom-color: ${styles.DarkGRAYUI}
+	border-bottom-width: 1px;
+	padding: 10px 0;
+	border-bottom-color: ${styles.DarkGRAYUI};
 `;
 
 const BigImage = styled.Image`
 	height: 154px;
-    width: 148px;
-    border-radius: 20px;
+	width: 148px;
+	border-radius: 20px;
 `;
 const SmallImage = styled.Image`
 	height: 71px;
-    width: 148px;
-    border-radius: 20px;
+	width: 148px;
+	border-radius: 20px;
 `;
 
 const SmallImageMargBott = styled(SmallImage)`
-    margin-bottom: 12px;
+	margin-bottom: 12px;
 `;
 
-const ImagesLeft = styled.View`
-`;
+const ImagesLeft = styled.View``;
 const ImagesRight = styled.View`
-    margin-left: 12px;
+	margin-left: 12px;
 `;
 
 const Images = styled.View`
 	display: flex;
-    width: 100%;
-    flex-direction: row;
+	width: 100%;
+	flex-direction: row;
 	align-items: center;
-    border-bottom-width: 1px;
-    padding-bottom: 16px;
-    border-bottom-color: ${styles.DarkGRAYUI};
+	border-bottom-width: 1px;
+	padding-bottom: 16px;
+	border-bottom-color: ${styles.DarkGRAYUI};
 `;
 
 const Description = styled(SmallText)`

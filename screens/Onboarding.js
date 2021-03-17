@@ -1,18 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
-import { StatusBar } from 'expo-status-bar';
+import { StatusBar } from 'react-native';
 import { ScrollView, View } from 'react-native';
 import styles from '../styles';
 import Carausal from '../components/Carousal';
 import { MediumText, SmallText } from '../components/Typography';
 import Button from '../components/Button';
+import { StatusBarStyles } from '../shared/constants';
 
 const OnboardingDescription = styled.View`
 	margin: 40px 0;
 `;
 const Onboarding = () => (
 	<>
-		<StatusBar style='light' />
+		<StatusBar barStyle={StatusBarStyles.lightContent} />
 		<ScrollView style={{ backgroundColor: styles.backgroundDark }}>
 			<Carausal fullScreen={true} />
 			<OnboardingDescription>
@@ -24,8 +25,19 @@ const Onboarding = () => (
 					Please continue to follow your daily plan.
 				</SmallText>
 			</OnboardingDescription>
-			<View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', flex: 1 }}>
-				<Button icon={'prev'} styles_parent={{ marginRight: 10 }} size={'small'} />
+			<View
+				style={{
+					flexDirection: 'row',
+					justifyContent: 'center',
+					alignItems: 'center',
+					flex: 1,
+				}}
+			>
+				<Button
+					icon={'prev'}
+					styles_parent={{ marginRight: 10 }}
+					size={'small'}
+				/>
 				<Button size={'large'} icon={'next'} title={'Next'} />
 			</View>
 		</ScrollView>
