@@ -27,7 +27,6 @@ export default () => {
 			<ScrollView style={{ backgroundColor: styles.backgroundDark }}>
 				<Container>
 					<ScreenTitle title={'Courses'} />
-
 					<FlexContainer>
 						<VerticalBox
 							gradientBackground1={styles.GradientGreen[0]}

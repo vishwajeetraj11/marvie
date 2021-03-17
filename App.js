@@ -2,7 +2,9 @@ import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import styles from './styles';
 import { AppLoading } from 'expo';
-import { StatusBar } from 'expo-status-bar';
+import { StatusBar } from 'react-native';
+import { StatusBarStyles } from './shared/constants';
+
 import {
 	useFonts,
 	Poppins_100Thin,
@@ -53,7 +55,11 @@ export default function App() {
 	} else {
 		return (
 			<>
-				<StatusBar style='light' />
+				<StatusBar
+					backgroundColor='transparent'
+					translucent={true}
+					barStyle={StatusBarStyles.lightContent}
+				/>
 				<ThemeProvider theme={styles}>
 					<MainNavigator />
 				</ThemeProvider>
