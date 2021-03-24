@@ -4,7 +4,7 @@ import styles from './styles';
 import { AppLoading } from 'expo';
 import { StatusBar } from 'react-native';
 import { StatusBarStyles } from './shared/constants';
-
+import { Provider } from 'react-redux';
 import {
 	useFonts,
 	Poppins_100Thin,
@@ -27,6 +27,7 @@ import {
 	Poppins_900Black_Italic,
 } from '@expo-google-fonts/poppins';
 import MainNavigator from './Navigation/MainNavigator';
+import store from './redux/store';
 
 export default function App() {
 	let [fontsLoaded] = useFonts({
@@ -60,9 +61,11 @@ export default function App() {
 					translucent={true}
 					barStyle={StatusBarStyles.lightContent}
 				/>
-				<ThemeProvider theme={styles}>
-					<MainNavigator />
-				</ThemeProvider>
+				<Provider store={store}>
+					<ThemeProvider theme={styles}>
+						<MainNavigator />
+					</ThemeProvider>
+				</Provider>
 			</>
 		);
 	}
