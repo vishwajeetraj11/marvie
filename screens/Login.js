@@ -15,6 +15,9 @@ import {
 import { useState } from 'react';
 import AuthInput from '../components/AuthInput';
 import Button from '../components/Button';
+import { useDispatch, useSelector } from 'react-redux';
+import { login } from '../redux/actions/userActions';
+import { USER_LOGIN_SUCCESS } from '../redux/constants/userConstants';
 
 const View = styled.View`
 	justify-content: center;
@@ -28,7 +31,11 @@ const Text = styled.Text``;
 const Login = () => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
-
+	const dispatch = useDispatch();
+	const state = useSelector((state) => state);
+	const onSuccess = () => {
+		dispatch({ type: USER_LOGIN_SUCCESS });
+	};
 	return (
 		<>
 			<StatusBar barStyle={StatusBarStyles.lightContent} />
@@ -61,6 +68,7 @@ const Login = () => {
 					/>
 					<BtnContainer>
 						<Button
+							onPress={onSuccess}
 							size={'larger'}
 							icon={'next'}
 							title={'Sign in'}
