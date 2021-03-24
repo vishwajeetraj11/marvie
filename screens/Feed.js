@@ -38,17 +38,6 @@ export default () => (
 				/>
 			</Container>
 			<Carousal />
-			<Container>
-				<MapView
-					title={'Burger King'}
-					theme={styles.lightGreen}
-					secondaryColor={styles.White}
-					rating={'4.9'}
-					place={'American Kitchen'}
-					time={'25-30 min'}
-					distance={'2.1 km'}
-				/>
-			</Container>
 		</ScrollView>
 	</>
 );

@@ -24,7 +24,9 @@ export const IconsNames = {
 	dotdot: 'dotdot',
 	filter: 'filter',
 	voice: 'voice',
-	google: 'google'
+	google: 'google',
+	burn: 'burn',
+	location_pin: 'location_pin'
 };
 
 export const StatusBarStyles = {

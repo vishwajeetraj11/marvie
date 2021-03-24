@@ -1,5 +1,4 @@
 import React from 'react';
-import { useState } from 'react';
 import AuthNavigator from './AuthNavigator';
 import TabNavigator from './Navigation';
 import { NavigationContainer } from '@react-navigation/native';
@@ -10,7 +9,8 @@ const MainNavigator = () => {
 
 	return (
 		<NavigationContainer>
-			{userLogin.userLoggedIn ? <TabNavigator /> : <AuthNavigator />}
+			 {/* {userLogin.userLoggedIn ? <TabNavigator /> : <AuthNavigator />} */}
+			{true ? <TabNavigator /> : <AuthNavigator />}
 		</NavigationContainer>
 	);
 };
