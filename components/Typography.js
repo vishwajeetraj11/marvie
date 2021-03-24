@@ -17,3 +17,11 @@ export const MediumText = styled.Text`
 	font-family: 'Poppins_600SemiBold';
 	color: ${styles.White};
 `;
+
+export const AuthSecondTitle = styled.Text`
+	text-align: ${(props) => (props.center ? 'center' : 'auto')};
+	font-size: 24px;
+	font-family: 'Poppins_200ExtraLight';
+	letter-spacing: -0.3px;
+	color: ${(props) => (props.color ? props.color : styles.White)};
+`;

@@ -8,18 +8,14 @@ export default class Carausal extends React.Component {
 		super(props);
 		this.state = {
 			activeIndex: 1,
-			fullScreen: props.fullScreen,
 			carouselItems: [
 				{
-					fullScreen: props.fullScreen,
 					source: require('../assets/car1.png'),
 				},
 				{
-					fullScreen: props.fullScreen,
 					source: require('../assets/car2.png'),
 				},
 				{
-					fullScreen: props.fullScreen,
 					source: require('../assets/car3.png'),
 				},
 			],
@@ -32,7 +28,7 @@ export default class Carausal extends React.Component {
 				style={{
 					borderRadius: 24,
 					overflow: 'hidden',
-					height: item.fullScreen ? 500 : 300,
+					height: 500,
 					alignItems: 'center',
 					justifyContent: 'center',
 				}}
@@ -50,8 +46,8 @@ export default class Carausal extends React.Component {
 			<SafeAreaView
 				style={{
 					flex: 1,
-					marginBottom: this.state.fullScreen ? 0 : 24,
-					marginTop: this.state.fullScreen ? 70 : 0,
+					marginBottom: 24,
+					marginTop: 0,
 				}}
 			>
 				<View
@@ -67,7 +63,7 @@ export default class Carausal extends React.Component {
 						ref={(ref) => (this.carousel = ref)}
 						data={this.state.carouselItems}
 						sliderWidth={398}
-						itemWidth={this.props.fullScreen ? 300 : 50}
+						itemWidth={300}
 						renderItem={(item, index) =>
 							this._renderItem(item, index, this.state)
 						}

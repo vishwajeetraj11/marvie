@@ -6,20 +6,18 @@ import React from 'react';
 
 const Auth = createStackNavigator();
 
-
-
 function AuthNavigator() {
-  return (
-    <Auth.Navigator
-    screenOptions={{
-        headerShown: false
-    }}
-    >
-      <Auth.Screen name="Onboarding" component={Onboarding} />
-      <Auth.Screen name="Login" component={Login} />
-      <Auth.Screen name="SignUp" component={SignUp} />
-    </Auth.Navigator>
-  );
+	return (
+		<Auth.Navigator
+			screenOptions={{
+				headerShown: false,
+			}}
+		>
+			<Auth.Screen name='Onboarding' component={Onboarding} />
+			<Auth.Screen name='Login' component={Login} />
+			<Auth.Screen name='SignUp' component={SignUp} />
+		</Auth.Navigator>
+	);
 }
 
-export default AuthNavigator
+export default AuthNavigator;

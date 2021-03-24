@@ -99,7 +99,6 @@ const Post = ({
                     <CommentInput
                         onChangeText={setComment}
                         value={comment}
-                        inlineImageLeft='search_icon'
                         placeholderTextColor={styles.DarkGRAYUI}
                         placeholder={'Write a comment!'}
                     // multiline
