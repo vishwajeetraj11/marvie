@@ -34,7 +34,7 @@ const Login = () => {
 	const dispatch = useDispatch();
 	const state = useSelector((state) => state);
 	const onSuccess = () => {
-		dispatch({ type: USER_LOGIN_SUCCESS });
+		dispatch(login());
 	};
 	return (
 		<>

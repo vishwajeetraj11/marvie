@@ -20,7 +20,11 @@ export const IconsNames = {
 	cart: 'cart',
 	next: 'next',
 	prev: 'prev',
-	share: 'share'
+	share: 'share',
+	dotdot: 'dotdot',
+	filter: 'filter',
+	voice: 'voice',
+	google: 'google'
 };
 
 export const StatusBarStyles = {
