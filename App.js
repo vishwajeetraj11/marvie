@@ -55,7 +55,7 @@ export default function App() {
 		return <AppLoading />;
 	} else {
 		return (
-			<>
+			<> 
 				<StatusBar
 					backgroundColor='transparent'
 					translucent={true}

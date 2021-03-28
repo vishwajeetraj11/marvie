@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { StatusBar } from 'react-native';
 import { ScrollView } from 'react-native';
@@ -19,7 +19,7 @@ class Carausal extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			activeIndex: 1,
+			activeIndex: props.initial,
 			carouselItems: [
 				{
 					source: require('../assets/car1.png'),
@@ -34,14 +34,12 @@ class Carausal extends React.Component {
 		};
 	}
 
-	
-
 	pagination() {
-		const { carouselItems: entries, activeIndex: activeSlide } = this.state;
+		const { carouselItems: entries, activeIndex } = this.state;
 		return (
 			<Pagination
 				dotsLength={entries.length}
-				activeDotIndex={activeSlide}
+				activeDotIndex={this.props.initial}
 				containerStyle={{ backgroundColor: styles.backgroundDark }}
 				dotStyle={{
 					width: 8,
@@ -109,8 +107,8 @@ class Carausal extends React.Component {
 							this.setState({ activeIndex: index })
 						}
 						inactiveSlideOpacity={0.6}
-						firstItem={1}
-						loop={true}
+						firstItem={this.props.initial}
+						loop={false}
 						inactiveSlideScale={0.8}
 					/>
 				</View>
@@ -120,38 +118,69 @@ class Carausal extends React.Component {
 	}
 }
 
-const Onboarding = ({navigation}) => (
-	<>
-		<StatusBar barStyle={StatusBarStyles.lightContent} />
-		<ScrollView style={{ backgroundColor: styles.backgroundDark }}>
-			<Carausal />
-			<OnboardingDescription>
-				<MediumText center>Join Our Awesome Community</MediumText>
-				<SmallText color={styles.LightGrayUI} center>
-					It looks like you are on track.
-				</SmallText>
-				<SmallText color={styles.LightGrayUI} center>
-					Please continue to follow your daily plan.
-				</SmallText>
-			</OnboardingDescription>
-			<View
-				style={{
-					flexDirection: 'row',
-					justifyContent: 'center',
-					alignItems: 'center',
-					flex: 1,
-				}}
-			>
-				<Button
-					icon={'prev'}
-					opacity={0.6}
-					styles_parent={{ marginRight: 10 }}
-					size={'small'}
-				/>
-				<Button onPress={() => {navigation.navigate('Login')}} size={'large'} icon={'next'} title={'Next'} />
-			</View>
-		</ScrollView>
-	</>
-);
+const Onboarding = ({ navigation }) => {
+	const [active, setActive] = useState(0);
+	const [screenState, setScreenState] = useState('INIT');
+	const [buttonText, setButtonText] = useState('Next');
+
+	const handleMainButton = () => {
+		if (active === 1) {
+			setButtonText('Sign Up');
+			setActive((p) => p + 1);
+		} else if (!(active === 2)) {
+			setActive((p) => p + 1);
+		} else if (active === 2) {
+			navigation.navigate('Login');
+		}
+	};
+
+	const handleSmallButton = () => {
+		if (!(active === 0)) {
+			setActive((p) => p - 1);
+			setButtonText('Next');
+		}
+	};
+
+	return (
+		<>
+			<StatusBar barStyle={StatusBarStyles.lightContent} />
+			<ScrollView style={{ backgroundColor: styles.backgroundDark }}>
+				<Carausal initial={active} />
+				<OnboardingDescription>
+					<MediumText center>Join Our Awesome Community</MediumText>
+					<SmallText color={styles.LightGrayUI} center>
+						It looks like you are on track.
+					</SmallText>
+					<SmallText color={styles.LightGrayUI} center>
+						Please continue to follow your daily plan.
+					</SmallText>
+				</OnboardingDescription>
+				<View
+					style={{
+						flexDirection: 'row',
+						justifyContent: 'center',
+						alignItems: 'center',
+						flex: 1,
+					}}
+				>
+					<Button
+						onPress={handleSmallButton}
+						icon={'prev'}
+						opacity={0.6}
+						styles_parent={{ marginRight: 10 }}
+						size={'small'}
+					/>
+					<Button
+						// onPress={() => {navigation.navigate('Login')}}
+						onPress={handleMainButton}
+						size={'large'}
+						icon={'next'}
+						title={buttonText}
+					/>
+				</View>
+			</ScrollView>
+		</>
+	);
+};
 
 export default Onboarding;
