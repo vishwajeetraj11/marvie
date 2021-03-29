@@ -23,5 +23,6 @@ export default {
     UltraDark: "#30444E",
     GradientGreen: ["#40DF9F", "#3ED598"],
     backgroundDark: "#22333B",
+    dark: "#1A282F"
   };
   

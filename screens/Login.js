@@ -19,20 +19,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../redux/actions/userActions';
 import { USER_LOGIN_SUCCESS } from '../redux/constants/userConstants';
 
-const View = styled.View`
-	justify-content: center;
-	align-items: center;
-	flex: 1;
-	background-color: #ffffff;
-`;
-
-const Text = styled.Text``;
-
-const Login = () => {
+const Login = ({ navigation }) => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const dispatch = useDispatch();
-	const state = useSelector((state) => state);
 	const onSuccess = () => {
 		dispatch(login());
 	};
@@ -81,6 +71,7 @@ const Login = () => {
 					</ForgotPasswordTouchable>
 					<PosAbsBtn>
 						<Button
+							onPress={() => navigation.navigate('SignUp')}
 							txtColor={styles.Green}
 							Bgcolor={styles.darkGreen}
 							size={'larger'}
@@ -99,9 +90,10 @@ const BtnContainer = styled.View`
 `;
 
 const PosAbsBtn = styled(BtnContainer)`
+	width: ${props => `${windowWidth}px`};
 	position: absolute;
 	bottom: 0px;
-	margin: ${() => `0 ${windowWidth / 6 / 2}px`};
+	/* margin: ${() => `0 ${windowWidth / 6 / 2}px`}; */
 	padding-left: 16px;
 	padding-right: 16px;
 `;

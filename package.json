@@ -23,6 +23,7 @@
     "react-native": "https://github.com/expo/react-native/archive/sdk-39.0.4.tar.gz",
     "react-native-gesture-handler": "~1.7.0",
     "react-native-icomoon": "^0.1.1",
+    "react-native-phone-number-input": "^2.0.1",
     "react-native-screens": "~2.10.1",
     "react-native-snap-carousel": "^3.9.1",
     "react-native-svg": "12.1.0",

@@ -1,6 +1,6 @@
 import React from 'react';
 import { LinearGradient } from 'expo-linear-gradient';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import styles from '../styles';
 import { SmallText } from './Typography';
 import Icon from './core/Icon';
@@ -16,10 +16,15 @@ const Button = ({
 	styles_parent,
 	Bgcolor,
 	txtColor,
-	onPress
+	onPress,
 }) => {
 	return (
-		<Touchable onPress={onPress} opacity={opacity} size={size} styles={styles_parent}>
+		<Touchable
+			onPress={onPress}
+			opacity={opacity}
+			size={size}
+			styles={styles_parent}
+		>
 			<LinearGradient
 				colors={[
 					Bgcolor ? Bgcolor : styles.GradientGreen[0],
@@ -51,6 +56,7 @@ const IconContainer = styled.View`
 `;
 
 const Touchable = styled.TouchableOpacity`
+	flex: ${(props) => (props.size === 'larger' ? 3 : 1)};
 	width: ${(props) =>
 		props.size === 'small'
 			? '80px'

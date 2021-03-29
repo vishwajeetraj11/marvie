@@ -13,9 +13,9 @@ function AuthNavigator() {
 				headerShown: false,
 			}}
 		>
-			<Auth.Screen name='Onboarding' component={Onboarding} />
-			<Auth.Screen name='Login' component={Login} />
+		<Auth.Screen name='Onboarding' component={Onboarding} />
 			<Auth.Screen name='SignUp' component={SignUp} />
+			<Auth.Screen name='Login' component={Login} />
 		</Auth.Navigator>
 	);
 }
